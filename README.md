@@ -9,8 +9,8 @@ The mechanism involves the front-end sending a file upload request to the backen
 ```
 S3_Presigned_URL/
 ├── templates/
-├── ├── test.mp4
-├── ├── image.png
+│   ├── test.mp4
+│   ├── image.png
 │   └── index.html
 ├── .gitignore
 ├── backend.py
@@ -48,7 +48,6 @@ S3_Presigned_URL/
 
 ## Unit Text
 
-When you test all the funtionality, you can open the `unittext.py` directly and run the command `python unittext.py` to check all test cases are OK.
 When you've tested all the functionality and code, feel free to open `unittest.py` directly and execute the command `python unittest.py` to ensure that all test cases pass successfully.
 
 ![Alt text](./templates/image.png)
