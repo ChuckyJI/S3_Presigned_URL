@@ -1,2 +1,3 @@
 # for the private s3 Key and ID
 config.py
+__pycache__/*

@@ -4,8 +4,10 @@ from flask import Flask, render_template, request, jsonify
 
 app = Flask(__name__)
 
+EXPIRESIN = 600
 
-def generate_presigned_post(FILE_ROUTE):
+
+def generate_presigned_post(FILE_ROUTE, EXPIRESIN):
     s3_client = boto3.client(
         's3',
         aws_access_key_id=AWS_ACCESS_KEY_ID,
@@ -17,7 +19,7 @@ def generate_presigned_post(FILE_ROUTE):
         Params={"Bucket": AWS_BUCKET_NAME,
                 "Key": AWS_BUCKET_KEY + FILE_ROUTE,
                 'ContentType': 'video/mp4', },
-        ExpiresIn=100,
+        ExpiresIn=EXPIRESIN,
         HttpMethod='PUT'
     )
 
@@ -33,8 +35,7 @@ def home():
 def upload():
     video_file = request.files['video']
     print(f"Uploaded video file: {video_file.filename}")
-    getResponse = generate_presigned_post(video_file.filename)
-    print(getResponse)
+    getResponse = generate_presigned_post(video_file.filename, EXPIRESIN)
     return jsonify(data=getResponse)
 
 

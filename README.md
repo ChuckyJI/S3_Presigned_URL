@@ -9,11 +9,14 @@ The mechanism involves the front-end sending a file upload request to the backen
 ```
 S3_Presigned_URL/
 ├── templates/
+├── ├── test.mp4
+├── ├── image.png
 │   └── index.html
 ├── .gitignore
 ├── backend.py
 ├── config.dist.py
 ├── README.md
+├── unittest.py
 ```
 
 ## Step
@@ -41,4 +44,11 @@ S3_Presigned_URL/
 
 4. Run the command `python <YOUR BACKENT.PY FULL ROUTE>`
 5. Open the corresponding link, such as `http://127.0.0.1:5000/` to explore the application.
-6. You can test the functionality by adjusting the `ExpiresIn` value on Line 20 in `backend.py` using Postman.
+6. You can test the functionality by adjusting the `EXPIRESIN` value on Line 7 in `backend.py` using Postman.
+
+## Unit Text
+
+When you test all the funtionality, you can open the `unittext.py` directly and run the command `python unittext.py` to check all test cases are OK.
+When you've tested all the functionality and code, feel free to open `unittest.py` directly and execute the command `python unittest.py` to ensure that all test cases pass successfully.
+
+![Alt text](./templates/image.png)
