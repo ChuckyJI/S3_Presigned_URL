@@ -48,6 +48,6 @@ S3_Presigned_URL/
 
 ## Unit Text
 
-When you've tested all the functionality and code, feel free to open `unittest.py` directly and execute the command `python unittest.py` to ensure that all test cases pass successfully.
+When you've tested all the functionality and code, feel free to open `uploadTest.py` directly and execute the command `python uploadTest.py` to ensure that all test cases pass successfully.
 
 ![Alt text](./templates/image.png)
