@@ -16,7 +16,7 @@ S3_Presigned_URL/
 ├── backend.py
 ├── config.dist.py
 ├── README.md
-├── unittest.py
+├── uploadTest.py
 ```
 
 ## Step
@@ -42,7 +42,7 @@ S3_Presigned_URL/
 ]
 ```
 
-4. Run the command `python <YOUR BACKENT.PY FULL ROUTE>`
+4. Run the command `python <YOUR BACKEND.PY FULL ROUTE>`
 5. Open the corresponding link, such as `http://127.0.0.1:5000/` to explore the application.
 6. You can test the functionality by adjusting the `EXPIRESIN` value on Line 7 in `backend.py` using Postman.
 
