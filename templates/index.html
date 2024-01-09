@@ -20,25 +20,19 @@
                 const formData = new FormData(form);
                 const file = formData.get('video');
                 
-                const response = await uploadFiles();
-                const result = await fetch(response.data, {
+                const uploadResponse = await fetch('/upload', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ fileName: file.name }),
+                });
+
+                const responseData = await uploadResponse.json();
+
+                const result = await fetch(responseData.data, {
                     method: 'PUT',
                     body: file,
-                })
-            }
-
-            async function uploadFiles() {
-                return new Promise((resolve, reject) => {
-                    const form = document.getElementById('uploadForm');
-                    const formData = new FormData(form);
-
-                    fetch('/upload', {
-                        method: 'POST',
-                        body: formData,
-                    })
-                    .then(response => response.json())
-                    .then(data => resolve(data))
-                    .catch(error => reject(error));
                 });
             }
         </script>

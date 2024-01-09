@@ -33,9 +33,8 @@ def home():
 
 @app.route('/upload', methods=['POST'])
 def upload():
-    video_file = request.files['video']
-    print(f"Uploaded video file: {video_file.filename}")
-    getResponse = generate_presigned_post(video_file.filename, EXPIRESIN)
+    file_name = request.get_json()
+    getResponse = generate_presigned_post(file_name['fileName'], EXPIRESIN)
     return jsonify(data=getResponse)
 
 
