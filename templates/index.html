@@ -11,11 +11,17 @@
         <form id="uploadForm" action="/upload" method="post">
             <label for="videoInput">Select the video:</label>
             <input type="file" id="videoInput" name="video" accept="video/*">
-            <button type="button" onclick="handleUpload()">Upload</button>
+            <button type="button" onclick="handleUpload()" >Upload</button>
         </form>
+
+        <h5 id="timeDisplay">Time:</h5>
 
         <script>
             async function handleUpload() {
+                const uploadButton = document.querySelector('button');
+                uploadButton.disabled = true;                
+                const startTime = new Date();
+
                 const form = document.getElementById('uploadForm');
                 const formData = new FormData(form);
                 const file = formData.get('video');
@@ -34,6 +40,23 @@
                     method: 'PUT',
                     body: file,
                 });
+
+                const endTime = new Date();
+
+                if (result.status) {
+                    if (result.status === 200) {
+                        alert('Upload successful!');
+                    } else {
+                        alert('Upload failed!');
+                    }
+                    uploadButton.disabled = false;
+                }
+
+                const timeDiff = endTime - startTime;
+                const seconds = timeDiff / 1000;
+
+                const timeDisplay = document.getElementById('timeDisplay');
+                timeDisplay.innerText = `Time: ${seconds.toFixed(2)} seconds`;
             }
         </script>
     </body>
