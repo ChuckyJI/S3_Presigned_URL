@@ -5,7 +5,7 @@ from config import AWS_ACCESS_KEY_ID, AWS_BUCKET_NAME, AWS_BUCKET_KEY
 from backend import generate_presigned_post
 
 EXPIRESIN = 600
-SLEEPING_TIME = 5
+SLEEPING_TIME = 1
 
 
 class TestUploading(unittest.TestCase):
