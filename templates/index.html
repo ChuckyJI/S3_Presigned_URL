@@ -3,10 +3,12 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Document</title>
+        <title id="alertNotification">Document</title>
     </head>
     <body>
         <h1>Hello world!</h1>
+
+        <h4 style="color: red;">Do not CLOSE the page when uploading!</h4>
 
         <form id="uploadForm" action="/upload" method="post">
             <label for="videoInput">Select the video:</label>
@@ -19,8 +21,10 @@
         <script>
             async function handleUpload() {
                 const uploadButton = document.querySelector('button');
-                uploadButton.disabled = true;                
+                uploadButton.disabled = true;    
                 const startTime = new Date();
+
+                const alertNotification = document.getElementById('alertNotification');
 
                 const form = document.getElementById('uploadForm');
                 const formData = new FormData(form);
@@ -45,9 +49,13 @@
 
                 if (result.status) {
                     if (result.status === 200) {
+                        alertNotification.innerText = '【Upload successful!】';
                         alert('Upload successful!');
+                        notification('Document');
                     } else {
+                        alertNotification.innerText = '【Upload failed!】';
                         alert('Upload failed!');
+                        notification('Document');
                     }
                     uploadButton.disabled = false;
                 }
@@ -57,6 +65,15 @@
 
                 const timeDisplay = document.getElementById('timeDisplay');
                 timeDisplay.innerText = `Time: ${seconds.toFixed(2)} seconds`;
+            }
+
+            function notification(text){
+                if (window.confirm){
+                    alertNotification.innerText = text;
+                }
+                else{
+                    alertNotification.innerText = text;
+                }
             }
         </script>
     </body>
