@@ -1,11 +1,16 @@
 import unittest
 import requests
 import time
-from config import AWS_ACCESS_KEY_ID, AWS_BUCKET_NAME, AWS_BUCKET_KEY
 from backend import generate_presigned_post
+import os
 
 EXPIRESIN = 600
 SLEEPING_TIME = 1
+
+AWS_ACCESS_KEY_ID = os.environ.get("AWS_ACCESS_KEY_ID")
+AWS_ACCESS_KEY_SECRET = os.environ.get("AWS_ACCESS_KEY_SECRET")
+AWS_BUCKET_NAME = os.environ.get("AWS_BUCKET_NAME")
+AWS_BUCKET_KEY = os.environ.get("AWS_BUCKET_KEY")
 
 
 class TestUploading(unittest.TestCase):
