@@ -1,10 +1,15 @@
 import boto3
-from config import AWS_ACCESS_KEY_ID, AWS_ACCESS_KEY_SECRET, AWS_BUCKET_NAME, AWS_BUCKET_KEY
 from flask import Flask, render_template, request, jsonify
+import os
 
 app = Flask(__name__)
 
 EXPIRESIN = 600
+
+AWS_ACCESS_KEY_ID = os.environ.get("AWS_ACCESS_KEY_ID")
+AWS_ACCESS_KEY_SECRET = os.environ.get("AWS_ACCESS_KEY_SECRET")
+AWS_BUCKET_NAME = os.environ.get("AWS_BUCKET_NAME")
+AWS_BUCKET_KEY = os.environ.get("AWS_BUCKET_KEY")
 
 
 def generate_presigned_post(FILE_ROUTE, EXPIRESIN):
