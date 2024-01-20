@@ -49,13 +49,13 @@
 
                 if (result.status) {
                     if (result.status === 200) {
-                        alertNotification.innerText = '【Upload successful!】';
+                        alertNotification.innerText = '[Upload successful!]';
                         alert('Upload successful!');
-                        notification('Document');
+                        // notification('Document');
                     } else {
-                        alertNotification.innerText = '【Upload failed!】';
+                        alertNotification.innerText = '[Upload failed!]';
                         alert('Upload failed!');
-                        notification('Document');
+                        // notification('Document');
                     }
                     uploadButton.disabled = false;
                 }
